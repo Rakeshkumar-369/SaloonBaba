@@ -1,0 +1,18 @@
+{
+  "name": "saloonbaba",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SaloonBaba - the operating system for salons: owner, manager, franchise, staff, vendor and customer apps",
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "setup": "npm install && npm run db:reset",
+    "db:reset": "npm run db:reset -w server",
+    "db:seed": "npm run db:seed -w server",
+    "dev": "node scripts/dev.js",
+    "build": "npm run build -w client",
+    "start": "npm run start -w server",
+    "smoke": "node scripts/smoke.js"
+  },
+  "engines": { "node": ">=18.18" }
+}
