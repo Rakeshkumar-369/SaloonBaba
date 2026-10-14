@@ -1,0 +1,45 @@
+# One command demo: docker compose up --build  →  http://localhost:4000
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: saloonbaba
+      MYSQL_USER: saloonbaba
+      MYSQL_PASSWORD: saloonbaba
+      TZ: Asia/Kolkata
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass"]
+      interval: 5s
+      retries: 30
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: rootpass
+      DB_NAME: saloonbaba
+      JWT_SECRET: change-this-in-production
+      APP_URL: http://localhost:4000
+      # Integrations (optional) — leave empty for simulated demo mode
+      WHATSAPP_TOKEN: ""
+      WHATSAPP_PHONE_NUMBER_ID: ""
+      MSG91_AUTH_KEY: ""
+      RAZORPAY_KEY_ID: ""
+      RAZORPAY_KEY_SECRET: ""
+    volumes:
+      - uploads:/app/server/uploads
+
+volumes:
+  dbdata:
+  uploads:

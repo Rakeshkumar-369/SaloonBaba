@@ -261,6 +261,8 @@ function ClientPicker({ client, setClient }) {
   const create = () => run(async () => {
     const r = await post(`/salons/${id}/clients`, { ...nc, source: 'walkin' });
     setClient({ id: r.id, ...nc, visits: 0 });
+    setNc({ name: '', phone: '' });
+    setSearch('');
   }, 'Client added').catch(() => {});
   return (
     <Card title="Client">
