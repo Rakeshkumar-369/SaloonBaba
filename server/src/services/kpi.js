@@ -209,7 +209,7 @@ export async function nudges(salonId) {
     });
   if (k.second_visit_rate && k.second_visit_rate < 60)
     out.push({
-      type: 'retention', tone: 'info', title: `2nd-visit return is ${k.second_visit_rate}% (best salons: 70%)`,
+      type: 'retention', tone: 'info', title: `2nd-visit return is ${Math.round(k.second_visit_rate)}% (best salons: 70%)`,
       body: 'Turn on the rebook-before-leaving prompt at billing and the 48-hour thank-you message.',
       action: { label: 'See clients due', to: 'clients?segment=due' },
     });

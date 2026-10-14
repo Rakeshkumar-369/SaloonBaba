@@ -56,6 +56,21 @@ r.get('/appointments', async (req, res) => {
   });
 });
 
+r.get('/appointments/:aid', async (req, res) => {
+  const a = await one(
+    `SELECT a.*, c.name AS client_name, c.phone AS client_phone, c.visits, c.wallet_balance, c.allergies FROM appointments a
+     JOIN clients c ON c.id = a.client_id WHERE a.id = ? AND a.salon_id = ?`,
+    [req.params.aid, req.salon.id],
+  );
+  if (!a) throw notFound('Appointment not found');
+  a.services = await q(
+    `SELECT aps.service_id, aps.price, aps.duration_min, s.name FROM appointment_services aps JOIN services s ON s.id = aps.service_id WHERE aps.appointment_id = ?`,
+    [a.id],
+  );
+  if (req.access === 'stylist') a.client_phone = maskPhone(a.client_phone);
+  res.json(a);
+});
+
 r.get('/slots', async (req, res) => {
   const serviceIds = String(req.query.services || '').split(',').filter(Boolean).map(Number);
   res.json(await getSlots({ salonId: req.salon.id, date: req.query.date || today(), serviceIds, staffId: req.query.staff_id || null }));

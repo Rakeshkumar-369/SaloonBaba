@@ -12,15 +12,15 @@ export const MENU = {
     { name: 'Haircut — Men', category: 'Men', price: 350, dur: 30, cycle: 28, gender: 'men', tags: 'haircut,fade,men haircut', recipe: [] },
     { name: 'Beard Trim & Shape', category: 'Men', price: 200, dur: 20, cycle: 14, gender: 'men', tags: 'beard,beard trim', recipe: [] },
     { name: 'Head Massage', category: 'Men', price: 300, dur: 20, cycle: null, gender: 'unisex', tags: 'massage,relax', recipe: [] },
-    { name: "Men's Hair Colour", category: 'Men', price: 900, dur: 45, cycle: 30, gender: 'men', tags: 'colour,grey coverage', recipe: [['Hair Colour Tube 60g', 0.5], ['Developer 1L', 0.05]] },
+    { name: "Men's Hair Colour", category: 'Men', price: 900, dur: 45, cycle: 30, gender: 'men', tags: 'colour,grey coverage', recipe: [['Hair Colour Tube 60g', 0.35], ['Developer 1L', 0.03]] },
     { name: 'Blow-dry & Styling', category: 'Hair', price: 700, dur: 40, cycle: null, gender: 'women', tags: 'blowdry,styling,party', recipe: [] },
-    { name: 'Hair Spa', category: 'Treatments', price: 1200, dur: 60, cycle: 30, gender: 'unisex', tags: 'hair spa,dandruff,frizz', recipe: [['Hair Spa Cream 500g', 0.06]] },
+    { name: 'Hair Spa', category: 'Treatments', price: 1200, dur: 60, cycle: 30, gender: 'unisex', tags: 'hair spa,dandruff,frizz', recipe: [['Hair Spa Cream 500g', 0.04]] },
     { name: 'Curly Hair Cut & Care', category: 'Hair', price: 1400, dur: 75, cycle: 60, gender: 'unisex', tags: 'curly hair,curls,wavy', recipe: [] },
-    { name: 'Root Touch-up', category: 'Colour', price: 1500, dur: 75, cycle: 35, gender: 'women', tags: 'colour,grey coverage,root touch up', recipe: [['Hair Colour Tube 60g', 1], ['Developer 1L', 0.06]] },
-    { name: 'Global Hair Colour', category: 'Colour', price: 3500, dur: 120, cycle: 60, gender: 'unisex', tags: 'colour,global colour', recipe: [['Hair Colour Tube 60g', 2], ['Developer 1L', 0.12]] },
-    { name: 'Balayage / Highlights', category: 'Colour', price: 5500, dur: 180, cycle: 90, gender: 'women', tags: 'balayage,highlights,colour', recipe: [['Lightener 500g', 0.1], ['Hair Colour Tube 60g', 1], ['Developer 1L', 0.1]] },
-    { name: 'Keratin Treatment', category: 'Treatments', price: 6500, dur: 180, cycle: 120, gender: 'unisex', tags: 'keratin,frizz,smoothening', recipe: [['Keratin Smooth Kit 1L', 0.12]] },
-    { name: 'Classic Facial', category: 'Skin', price: 1500, dur: 60, cycle: 30, gender: 'unisex', tags: 'facial,glow', recipe: [['Facial Kit (pack of 5)', 0.2]] },
+    { name: 'Root Touch-up', category: 'Colour', price: 1500, dur: 75, cycle: 35, gender: 'women', tags: 'colour,grey coverage,root touch up', recipe: [['Hair Colour Tube 60g', 0.6], ['Developer 1L', 0.04]] },
+    { name: 'Global Hair Colour', category: 'Colour', price: 3500, dur: 120, cycle: 60, gender: 'unisex', tags: 'colour,global colour', recipe: [['Hair Colour Tube 60g', 1.2], ['Developer 1L', 0.08]] },
+    { name: 'Balayage / Highlights', category: 'Colour', price: 5500, dur: 180, cycle: 90, gender: 'women', tags: 'balayage,highlights,colour', recipe: [['Lightener 500g', 0.06], ['Hair Colour Tube 60g', 0.6], ['Developer 1L', 0.06]] },
+    { name: 'Keratin Treatment', category: 'Treatments', price: 6500, dur: 180, cycle: 120, gender: 'unisex', tags: 'keratin,frizz,smoothening', recipe: [['Keratin Smooth Kit 1L', 0.08]] },
+    { name: 'Classic Facial', category: 'Skin', price: 1500, dur: 60, cycle: 30, gender: 'unisex', tags: 'facial,glow', recipe: [['Facial Kit (pack of 5)', 0.15]] },
     { name: 'Clean-up', category: 'Skin', price: 800, dur: 40, cycle: 21, gender: 'unisex', tags: 'cleanup,skin', recipe: [['Facial Kit (pack of 5)', 0.1]] },
     { name: 'D-Tan Pack', category: 'Skin', price: 600, dur: 30, cycle: null, gender: 'unisex', tags: 'detan,tan removal', recipe: [] },
     { name: 'Eyebrow Threading', category: 'Waxing', price: 80, dur: 10, cycle: 18, gender: 'women', tags: 'threading,eyebrows', recipe: [] },
@@ -38,7 +38,7 @@ export const MENU = {
     { name: 'Beard Trim & Shape', category: 'Men', price: 150, dur: 20, cycle: 10, gender: 'men', tags: 'beard,beard trim', recipe: [] },
     { name: 'Beard Styling', category: 'Men', price: 250, dur: 25, cycle: 14, gender: 'men', tags: 'beard,beard styling', recipe: [] },
     { name: 'Hot Towel Shave', category: 'Men', price: 200, dur: 25, cycle: 7, gender: 'men', tags: 'shave,hot towel', recipe: [] },
-    { name: "Men's Hair Colour", category: 'Colour', price: 700, dur: 45, cycle: 30, gender: 'men', tags: 'colour,grey coverage', recipe: [['Hair Colour Tube 60g', 0.5], ['Developer 1L', 0.05]] },
+    { name: "Men's Hair Colour", category: 'Colour', price: 700, dur: 45, cycle: 30, gender: 'men', tags: 'colour,grey coverage', recipe: [['Hair Colour Tube 60g', 0.35], ['Developer 1L', 0.03]] },
     { name: 'Head Massage', category: 'Treatments', price: 200, dur: 20, cycle: null, gender: 'men', tags: 'massage', recipe: [] },
     { name: 'Hair Spa', category: 'Treatments', price: 800, dur: 45, cycle: 30, gender: 'men', tags: 'hair spa,dandruff', recipe: [['Hair Spa Cream 500g', 0.05]] },
     { name: "Men's Facial", category: 'Skin', price: 900, dur: 45, cycle: 30, gender: 'men', tags: 'facial,men facial', recipe: [['Facial Kit (pack of 5)', 0.2]] },
@@ -61,7 +61,7 @@ export const SALONS = [
   {
     key: 'gc_an', brand: true, owner: 'anand', name: 'GlowCraft Anna Nagar', area: 'Anna Nagar', city: 'Chennai', lat: 13.085, lng: 80.2101,
     address: '2nd Avenue, Anna Nagar, Chennai 600040', gender_type: 'unisex', price_level: 3, open: '09:00', close: '21:00', hue: 300, plan: 'franchise',
-    women_staff: 1, home_service: 0, private_rooms: 1, gold_partner: 1, menu: 'unisex', priceX: 1.0, daily: 26, returnRate: 0.64, rebook: 0.38, retail: 0.24, discount: 0.08, noShow: 0.05,
+    women_staff: 1, home_service: 0, private_rooms: 1, gold_partner: 1, menu: 'unisex', priceX: 1.1, daily: 30, returnRate: 0.64, rebook: 0.38, retail: 0.24, discount: 0.08, noShow: 0.05,
     tagline: 'Award-winning colour and skin experts in Anna Nagar', upi: 'glowcraft.annanagar@okaxis', gst: '33AABCG1234F1Z5',
     manager: { key: 'lakshmi', name: 'Lakshmi Narayanan', gender: 'F', email: 'manager@glowcraft.in', phone: '9000000301' },
     staff: [
@@ -76,7 +76,7 @@ export const SALONS = [
   {
     key: 'gc_vel', brand: true, owner: 'anand', name: 'GlowCraft Velachery', area: 'Velachery', city: 'Chennai', lat: 12.9815, lng: 80.218,
     address: '100 Feet Road, Velachery, Chennai 600042', gender_type: 'unisex', price_level: 3, open: '09:30', close: '21:00', hue: 285, plan: 'franchise',
-    women_staff: 1, home_service: 0, private_rooms: 0, gold_partner: 1, menu: 'unisex', priceX: 0.95, daily: 18, returnRate: 0.5, rebook: 0.25, retail: 0.16, discount: 0.1, noShow: 0.07,
+    women_staff: 1, home_service: 0, private_rooms: 0, gold_partner: 1, menu: 'unisex', priceX: 1.0, daily: 22, returnRate: 0.5, rebook: 0.25, retail: 0.16, discount: 0.1, noShow: 0.07,
     tagline: 'Neighbourhood GlowCraft for families in Velachery', upi: 'glowcraft.velachery@okhdfc', gst: '33AABCG1234F2Z4',
     manager: { key: 'deepa', name: 'Deepa Venkatesh', gender: 'F', email: 'deepa@glowcraft.in', phone: '9000000303' },
     staff: [
@@ -89,7 +89,7 @@ export const SALONS = [
   {
     key: 'gc_tn', brand: true, owner: 'farhan', name: 'GlowCraft T Nagar', area: 'T Nagar', city: 'Chennai', lat: 13.0418, lng: 80.2341,
     address: 'Usman Road, T Nagar, Chennai 600017', gender_type: 'unisex', price_level: 3, open: '10:00', close: '21:00', hue: 270, plan: 'franchise',
-    women_staff: 0, home_service: 0, private_rooms: 0, gold_partner: 0, menu: 'unisex', priceX: 0.95, daily: 18, returnRate: 0.42, rebook: 0.15, retail: 0.1, discount: 0.22, noShow: 0.11,
+    women_staff: 0, home_service: 0, private_rooms: 0, gold_partner: 0, menu: 'unisex', priceX: 1.0, daily: 21, returnRate: 0.42, rebook: 0.15, retail: 0.1, discount: 0.22, noShow: 0.11,
     tagline: 'GlowCraft in the heart of T Nagar shopping', upi: 'glowcraft.tnagar@okicici', gst: '33AABCG1234F3Z3',
     manager: { key: 'vignesh', name: 'Vignesh Balaji', gender: 'M', email: 'vignesh@glowcraft.in', phone: '9000000304' },
     staff: [
@@ -102,7 +102,7 @@ export const SALONS = [
   {
     key: 'gc_kor', brand: true, owner: 'sneha', name: 'GlowCraft Koramangala', area: 'Koramangala', city: 'Bengaluru', lat: 12.9352, lng: 77.6245,
     address: '80 Feet Road, 4th Block, Koramangala, Bengaluru 560034', gender_type: 'unisex', price_level: 3, open: '09:00', close: '21:00', hue: 315, plan: 'franchise',
-    women_staff: 1, home_service: 0, private_rooms: 1, gold_partner: 1, menu: 'unisex', priceX: 1.1, daily: 21, returnRate: 0.55, rebook: 0.3, retail: 0.2, discount: 0.07, noShow: 0.06,
+    women_staff: 1, home_service: 0, private_rooms: 1, gold_partner: 1, menu: 'unisex', priceX: 1.15, daily: 24, returnRate: 0.55, rebook: 0.3, retail: 0.2, discount: 0.07, noShow: 0.06,
     tagline: 'Quick, premium grooming for Koramangala professionals', upi: 'glowcraft.koramangala@oksbi', gst: '29AABCG1234F1Z9',
     manager: { key: 'kiran', name: 'Kiran Hegde', gender: 'M', email: 'kiran@glowcraft.in', phone: '9000000305' },
     staff: [
@@ -115,7 +115,7 @@ export const SALONS = [
   {
     key: 'mane', brand: false, owner: 'meera', name: 'The Mane Room', area: 'Indiranagar', city: 'Bengaluru', lat: 12.9784, lng: 77.6408,
     address: '12th Main, HAL 2nd Stage, Indiranagar, Bengaluru 560038', gender_type: 'unisex', price_level: 4, open: '10:00', close: '21:00', hue: 165, plan: 'pro',
-    women_staff: 1, home_service: 0, private_rooms: 1, gold_partner: 1, menu: 'unisex', priceX: 1.3, daily: 20, returnRate: 0.6, rebook: 0.42, retail: 0.27, discount: 0.05, noShow: 0.05,
+    women_staff: 1, home_service: 0, private_rooms: 1, gold_partner: 1, menu: 'unisex', priceX: 1.45, daily: 22, returnRate: 0.6, rebook: 0.42, retail: 0.27, discount: 0.05, noShow: 0.05,
     tagline: 'Curly hair, colour and keratin specialists', upi: 'maneroom@okaxis', gst: '29AAFCM5678K1Z2',
     manager: { key: 'tanvi', name: 'Tanvi Shah', gender: 'F', email: 'manager@maneroom.in', phone: '9000000302' },
     staff: [
@@ -142,7 +142,7 @@ export const SALONS = [
   {
     key: 'lotus', brand: false, owner: 'revathi', name: 'Lotus Ladies Salon', area: 'Mylapore', city: 'Chennai', lat: 13.0339, lng: 80.2676,
     address: 'Luz Church Road, Mylapore, Chennai 600004', gender_type: 'women', price_level: 2, open: '09:00', close: '20:30', hue: 340, plan: 'growth',
-    women_staff: 1, home_service: 1, private_rooms: 1, gold_partner: 1, menu: 'women', priceX: 0.85, daily: 18, returnRate: 0.57, rebook: 0.3, retail: 0.18, discount: 0.06, noShow: 0.05,
+    women_staff: 1, home_service: 1, private_rooms: 1, gold_partner: 1, menu: 'women', priceX: 0.9, daily: 21, returnRate: 0.57, rebook: 0.3, retail: 0.18, discount: 0.06, noShow: 0.05,
     tagline: 'Women-only salon with all-women staff, bridal and home service', upi: 'lotusladies@okaxis', gst: '33AAPFL3456M1Z1',
     manager: { key: 'kavya', name: 'Kavya Subramanian', gender: 'F', email: 'kavya@lotussalon.in', phone: '9000000306' },
     staff: [

@@ -151,6 +151,11 @@ export async function createInvoice({
   const result = await tx(async (conn) => {
     const client = await one('SELECT * FROM clients WHERE id = ? AND salon_id = ? FOR UPDATE', [clientId, salon.id], conn);
     if (!client) throw bad('Client not found');
+    if (appointmentId) {
+      const appt = await one('SELECT status, invoice_id FROM appointments WHERE id = ? AND salon_id = ? FOR UPDATE', [appointmentId, salon.id], conn);
+      if (!appt) throw bad('Appointment not found');
+      if (appt.invoice_id || ['completed', 'cancelled', 'no_show'].includes(appt.status)) throw bad('This appointment is already billed or closed');
+    }
     const cart = await priceCart({ salon, client, items, discountAmount, offerCode, tipAmount }, conn);
     const createdAt = at || now();
 

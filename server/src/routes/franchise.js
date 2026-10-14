@@ -66,9 +66,9 @@ r.get('/overview', async (req, res) => {
   );
   const alerts = [];
   for (const o of rows) {
-    if (o.kpi.second_visit_rate && o.kpi.second_visit_rate < 45) alerts.push({ salon: o.name, text: `2nd-visit return ${o.kpi.second_visit_rate}% (network avg ${total?.second_visit_rate}%)` });
+    if (o.kpi.second_visit_rate && o.kpi.second_visit_rate < 45) alerts.push({ salon: o.name, text: `2nd-visit return ${Math.round(o.kpi.second_visit_rate)}% (network avg ${Math.round(total?.second_visit_rate || 0)}%)` });
     if (o.hygiene_score < 80) alerts.push({ salon: o.name, text: `Hygiene score ${o.hygiene_score}` });
-    if (o.kpi.discount_pct > 12) alerts.push({ salon: o.name, text: `Discounts at ${o.kpi.discount_pct}% of gross sales` });
+    if (o.kpi.discount_pct > 12) alerts.push({ salon: o.name, text: `Discounts at ${Math.round(o.kpi.discount_pct * 10) / 10}% of gross sales` });
     if (o.open_actions > 2) alerts.push({ salon: o.name, text: `${o.open_actions} audit actions still open` });
   }
   res.json({ brand: req.brand, brands: req.brands, is_hq: req.isHq, from, to, outlets: rows, total, royalty, leads, alerts });
@@ -81,7 +81,7 @@ r.get('/outlets/:id', async (req, res) => {
   const { from, to } = range(req.query, 30);
   const [kpi, staff, p] = await Promise.all([salonKpis(o.id, from, to), staffLeaderboard(o.id, from, to), pnl(o.id, from, to)]);
   const audits = await q('SELECT a.*, u.name AS auditor FROM audits a JOIN users u ON u.id = a.auditor_id WHERE a.salon_id = ? ORDER BY audit_date DESC LIMIT 5', [o.id]);
-  const actions = await q('SELECT * FROM audit_actions WHERE salon_id = ? ORDER BY FIELD(status,"open","in_progress","closed"), due_date', [o.id]);
+  const actions = await q(`SELECT * FROM audit_actions WHERE salon_id = ? ORDER BY FIELD(status,'open','in_progress','closed'), due_date`, [o.id]);
   res.json({ outlet: o, kpi, staff, pnl: req.isHq ? { net_sales: p.revenue.net_sales, royalty: p.costs.royalty, marketing_fee: p.costs.marketing_fee } : null, audits, actions });
 });
 

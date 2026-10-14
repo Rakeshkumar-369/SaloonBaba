@@ -255,7 +255,7 @@ export async function seed() {
     }
 
     // recurring costs
-    const rent = { gc_an: 145000, gc_vel: 95000, gc_tn: 160000, gc_kor: 175000, mane: 190000, barber: 55000, lotus: 70000 }[S.key];
+    const rent = { gc_an: 95000, gc_vel: 65000, gc_tn: 90000, gc_kor: 110000, mane: 120000, barber: 40000, lotus: 50000 }[S.key];
     const recurring = [
       ['rent', rent, 5, 'Shop rent'], ['electricity', Math.round(rent * 0.18), 10, 'EB bill (estimate)'], ['amc', 3500, 15, 'Equipment AMC'],
       ['laundry', Math.round(rent * 0.06), 28, 'Towel laundry'], ['other', 1800, 3, 'Internet & software'],
@@ -660,6 +660,19 @@ export async function seed() {
           const nd = d + Math.max(7, Math.round(cyc * (0.8 + rand() * 0.6)));
           if (nd <= HISTORY + AHEAD && (nd <= TODAY_IDX || rebooked || chance(0.35)))
             pushPending(nd, { client: c, rebookFrom: rebooked ? c._lastInvoice : null, source: rebooked ? 'rebook' : undefined });
+          else if (rebooked && nd > HISTORY + AHEAD) {
+            // Rebooked at checkout for a date beyond the simulated window: keep the future booking
+            const svcRow = svc[c._main];
+            const fstart = Math.min(close - svcRow.dur, open + 30 * int(1, Math.max(1, Math.floor((close - open - svcRow.dur) / 30))));
+            ids.appt += 1;
+            R.appointments.push({
+              id: ids.appt, salon_id: salonId, client_id: c.id, staff_id: chosen.st.id, chair_id: null, group_ref: null,
+              start_at: dts(dateOf(nd), fstart), end_at: dts(dateOf(nd), fstart + svcRow.dur), status: 'confirmed', source: 'rebook',
+              deposit_amount: 0, deposit_status: 'none', offer_id: null, campaign_id: null, notes: null, rebooked_from_invoice_id: invId, invoice_id: null,
+              reminder_sent: 0, created_by: null, created_at: billAt,
+            });
+            R.appointment_services.push({ appointment_id: ids.appt, service_id: svcRow.id, price: svcRow.price, duration_min: svcRow.dur });
+          }
         }
       }
     }

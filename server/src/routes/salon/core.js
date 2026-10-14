@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { q, one, insert, update } from '../../db.js';
 import { allow } from '../../middleware/auth.js';
+import { integrationsStatus } from '../../config.js';
 import { salonKpis, revenueSeries, staffLeaderboard, nudges } from '../../services/kpi.js';
 import { bad, need, pick, today, ymd, addDays, daysBetween, range } from '../../util.js';
 
@@ -38,7 +39,7 @@ r.get('/dashboard', async (req, res) => {
 r.get('/settings', async (req, res) => {
   const brand = req.salon.brand_id ? await one('SELECT id, name, royalty_pct, marketing_fee_pct FROM brands WHERE id = ?', [req.salon.brand_id]) : null;
   const chairs = await q('SELECT * FROM chairs WHERE salon_id = ? ORDER BY id', [req.salon.id]);
-  res.json({ salon: req.salon, brand, chairs, access: req.access });
+  res.json({ salon: req.salon, brand, chairs, access: req.access, integrations: integrationsStatus() });
 });
 
 r.patch('/settings', allow(), async (req, res) => {
